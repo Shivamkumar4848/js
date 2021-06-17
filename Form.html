@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Quiz
+    </title>
+    <style>
+        body{
+            background: yellow;
+        }
+        .container{
+            position: absolute;
+            top: 10%;
+            left: 38%;
+            
+        }
+        #btn{
+            border: none;
+            outline: none;
+            color: white;
+            background: black;
+            padding: 3px;
+            font-size: 15px;
+        }
+        #btn:hover{
+            background-color: red;
+            transition: .3s;
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <h1>To-Do List</h1>
+    <input type="textbox" id="txt1" placeholder="Write something..." />
+    <input id="btn" type="button" value="Add List" onclick="addList('ToDoListTable')" />
+    <table id="ToDoListTable" width="350px" border="1">
+    </table></div>
+
+
+    <script>
+        function addList(myTable) {
+
+            var table = document.getElementById(myTable);
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+
+
+            var b = document.getElementById('txt1').value;
+            var cell1 = row.insertCell(0);
+            var element1 = document.createElement("input");
+            element1.type = "text";
+            element1.style.width = "100%";
+            element1.name = "txtbox[]";
+            element1.value = b;
+            cell1.appendChild(element1);
+            var cell2 = row.insertCell(1);
+            var element2 = document.createElement("input");
+           
+            document.getElementById('txt1').value = " ";
+            document.getElementById('pTotal').innerHTML = rowCount + 1;
+        }
+    </script>
+</body>
+
+</html>
